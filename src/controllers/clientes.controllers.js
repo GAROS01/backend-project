@@ -18,6 +18,9 @@ export const getClient = async (req, res) => {
       "SELECT * FROM clientes WHERE id_cliente = ?",
       [id]
     );
+    if (rows[0].length === 0) {
+      return res.status(404).json({ message: "Cliente no encontrado" });
+    }
     res.json(rows[0]);
   } catch (error) {
     res.status(500);
@@ -56,7 +59,9 @@ export const updateClient = async (req, res) => {
       "UPDATE clientes set nombre = ?, apellido = ?,  telefono = ? WHERE id_cliente = ?",
       [nombre, apellido, telefono, id]
     );
-    res.json({ id, nombre, apellido, telefono });
+    if (rows[0].affectedRows === 0) {
+      return res.status(404).json({ message: "Cliente no encontrado" });
+    }
   } catch (error) {
     res.status(500);
     console.log(error);
