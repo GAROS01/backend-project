@@ -1,9 +1,11 @@
 import { pool } from "../db.js";
+import { queryGetManicuristas, queryGetManicurista } from "./query.js";
+import { formatManicuristas } from "./format.controllers.js";
 
 export const getManicuristas = async (req, res) => {
   try {
-    const rows = await pool.query("SELECT * FROM manicuristas");
-    res.json(rows[0]);
+    const rows = await pool.query(queryGetManicuristas);
+    res.json(formatManicuristas(rows[0]));
   } catch (error) {
     res.status(500);
     console.log(error);
