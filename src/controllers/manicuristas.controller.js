@@ -15,14 +15,11 @@ export const getManicuristas = async (req, res) => {
 export const getManicurista = async (req, res) => {
   try {
     const { id } = req.params;
-    const rows = await pool.query(
-      "SELECT * FROM manicuristas WHERE id_manicurista = ?",
-      [id]
-    );
+    const rows = await pool.query(queryGetManicurista, [id]);
     if (rows[0].length === 0) {
       return res.status(404).json({ message: "Manicurista no encontrado" });
     }
-    res.json(rows[0]);
+    res.json(formatManicuristas(rows[0])[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
