@@ -37,10 +37,12 @@ create table citas (
     id_cita int not null auto_increment,
     fecha date,
     hora time,
+    id_cliente int,
     id_manicurista int,
     gestiona_administrativo int,
     fecha_creacion timestamp not null default current_timestamp,
     primary key (id_cita),
+    foreign key (id_cliente) references clientes(id_cliente),
     foreign key (id_manicurista) references manicuristas(id_manicurista),
     foreign key (gestiona_administrativo) references administrativos(id_administrativo)
 );
@@ -68,4 +70,12 @@ insert into manicuristas (nombre, apellido, telefono, creado_por_administrativo)
 insert into manicuristas (nombre, apellido, telefono, creado_por_administrativo) values ('Luis', 'Perez', 12348767, 3);
 insert into manicuristas (nombre, apellido, telefono, creado_por_administrativo) values ('Maria', 'Gomez', 12345679, 1);
 insert into manicuristas (nombre, apellido, telefono, creado_por_administrativo) values ('Pedro', 'Rodriguez', 87654322, 2);
+
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '10:00:00', 1, 1, 1);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '11:00:00', 2, 2, 2);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '12:00:00', 3, 3, 3);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '13:00:00', 4, 4, 1);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '14:00:00', 5, 5, 2);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '15:00:00', 6, 1, 3);
+insert into citas (fecha, hora, id_cliente, id_manicurista, gestiona_administrativo) values ('2021-10-10', '16:00:00', 7, 2, 1);
 
