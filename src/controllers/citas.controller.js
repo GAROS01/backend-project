@@ -1,9 +1,11 @@
 import { pool } from "../db.js";
+import { queryGetCitas, queryGetCita } from "./query.js";
+import { formatCitas } from "./format.controllers.js";
 
 export const getCitas = async (req, res) => {
   try {
-    const rows = await pool.query("SELECT * FROM citas");
-    res.json(rows[0]);
+    const rows = await pool.query(queryGetCitas);
+    res.json(formatCitas(rows[0]));
   } catch (error) {
     res.status(500);
     console.log(error);
@@ -13,13 +15,11 @@ export const getCitas = async (req, res) => {
 export const getCita = async (req, res) => {
   try {
     const { id } = req.params;
-    const rows = await pool.query("SELECT * FROM citas WHERE id_cita = ?", [
-      id,
-    ]);
+    const rows = await pool.query(queryGetCita, [id]);
     if (rows[0].length === 0) {
       return res.status(404).json({ message: "Cita no encontrada" });
     }
-    res.json(rows[0][0]);
+    res.json(formatCitas(rows[0])[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
