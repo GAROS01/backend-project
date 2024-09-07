@@ -35,12 +35,7 @@ export const createAdministrativo = async (req, res) => {
       "INSERT INTO administrativos (nombre, apellido, telefono) VALUES (?,?,?)",
       [nombre, apellido, telefono]
     );
-    res.json({
-      id: rows.insertId,
-      nombre,
-      apellido,
-      telefono,
-    });
+    res.status(201).json({ id: rows[0].insertId, nombre, apellido, telefono });
   } catch (error) {
     res.status(500);
     console.log(error);
