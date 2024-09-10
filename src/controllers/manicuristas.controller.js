@@ -34,13 +34,7 @@ export const createManicurista = async (req, res) => {
       "INSERT INTO manicuristas (nombre, apellido, telefono, creado_por_administrativo) VALUES (?,?,?,?)",
       [nombre, apellido, telefono, creado_por_administrativo]
     );
-    res.json({
-      id: rows.insertId,
-      nombre,
-      apellido,
-      telefono,
-      creado_por_administrativo,
-    });
+    res.status(201).json({message: "Manicurista creada",   id: rows.insertId});
   } catch (error) {
     res.status(500);
     console.log(error);

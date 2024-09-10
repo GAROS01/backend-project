@@ -19,7 +19,7 @@ export const getCita = async (req, res) => {
     if (rows[0].length === 0) {
       return res.status(404).json({ message: "Cita no encontrada" });
     }
-    res.json(formatCitas(rows[0])[0]);
+    res.status(201).json(formatCitas(rows[0])[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
