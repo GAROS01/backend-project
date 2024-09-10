@@ -33,7 +33,7 @@ export const createClient = async (req, res) => {
       "INSERT INTO clientes (nombre, apellido, telefono, creador_administrativo) VALUES (?,?,?,?)",
       [nombre, apellido, telefono, creador_administrativo]
     );
-    res.json({ message: "Cliente creado", id: rows[0].insertId });
+    res.status(201).json({ message: "Cliente creado", id: rows[0].insertId });
   } catch (error) {
     res.status(500);
     console.log(error);
