@@ -1,10 +1,12 @@
 export const queryGetClients = `SELECT 
         c.id_cliente, 
+        c.correo AS cliente_correo,
         c.nombre AS cliente_nombre, 
         c.apellido AS cliente_apellido, 
         c.telefono AS cliente_telefono, 
         c.fecha_registro, 
         a.id_administrativo AS admin_id, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
@@ -14,11 +16,13 @@ export const queryGetClients = `SELECT
 
 export const queryGetClient = `SELECT 
         c.id_cliente, 
+        c.correo AS cliente_correo,
         c.nombre AS cliente_nombre, 
         c.apellido AS cliente_apellido, 
         c.telefono AS cliente_telefono, 
         c.fecha_registro, 
         a.id_administrativo AS admin_id, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
@@ -29,10 +33,12 @@ export const queryGetClient = `SELECT
 export const queryGetManicuristas = `
       SELECT 
         m.id_manicurista, 
+        m.correo AS manicurista_correo,
         m.nombre AS manicurista_nombre, 
         m.apellido AS manicurista_apellido, 
         m.telefono AS manicurista_telefono, 
         a.id_administrativo, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
@@ -43,10 +49,12 @@ export const queryGetManicuristas = `
 export const queryGetManicurista = `
       SELECT 
         m.id_manicurista, 
+        m.correo AS manicurista_correo,
         m.nombre AS manicurista_nombre, 
         m.apellido AS manicurista_apellido, 
         m.telefono AS manicurista_telefono, 
         a.id_administrativo, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
@@ -62,14 +70,17 @@ export const queryGetCitas = `
         c.hora, 
         c.fecha_creacion, 
         cl.id_cliente, 
+        cl.correo AS cliente_correo,
         cl.nombre AS cliente_nombre, 
         cl.apellido AS cliente_apellido, 
         cl.telefono AS cliente_telefono, 
         m.id_manicurista, 
+        m.correo AS manicurista_correo,
         m.nombre AS manicurista_nombre, 
         m.apellido AS manicurista_apellido, 
         m.telefono AS manicurista_telefono, 
         a.id_administrativo, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
@@ -86,14 +97,17 @@ export const queryGetCita = `
         c.hora, 
         c.fecha_creacion, 
         cl.id_cliente, 
+        cl.correo AS cliente_correo,
         cl.nombre AS cliente_nombre, 
         cl.apellido AS cliente_apellido, 
         cl.telefono AS cliente_telefono, 
         m.id_manicurista, 
+        m.correo AS manicurista_correo,
         m.nombre AS manicurista_nombre, 
         m.apellido AS manicurista_apellido, 
         m.telefono AS manicurista_telefono, 
         a.id_administrativo, 
+        a.correo AS admin_correo,
         a.nombre AS admin_nombre, 
         a.apellido AS admin_apellido, 
         a.telefono AS admin_telefono
