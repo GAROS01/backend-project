@@ -6,7 +6,7 @@ const router = Router();
 router.post("/validate-user", validateToken, (req, res) => {
   const user = req.user;
   console.log(user);
-  res.json({ email: user.email, id: user.id });
+  res.json({ correo: user.email, nombre: user.user_metadata.name });
 });
 
 export default router;

@@ -13,9 +13,7 @@ const supabase = createClient(
 // Middleware para validar el token JWT de Supabase
 export default async function validateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
-  console.log("Authorization Header:", authHeader);
   const token = authHeader && authHeader.split(" ")[1];
-  console.log("Extracted Token:", token);
 
   if (!token) {
     return res.status(401).json({ error: "Token not provided" });
@@ -29,7 +27,6 @@ export default async function validateToken(req, res, next) {
       console.error("Error validating token:", error);
       return res.status(401).json({ error: "Invalid token" });
     }
-    console.log("Authenticated User:", data.user);
 
     // Adjuntar la información del usuario a la solicitud
     req.user = data.user;
