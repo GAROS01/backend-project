@@ -29,12 +29,13 @@ export const getManicurista = async (req, res) => {
 export const createManicurista = async (req, res) => {
   try {
     console.log(req.body);
-    const { nombre, apellido, telefono, creado_por_administrativo } = req.body;
+    const { correo, nombre, apellido, telefono, creado_por_administrativo } =
+      req.body;
     const rows = await pool.query(
-      "INSERT INTO manicuristas (nombre, apellido, telefono, creado_por_administrativo) VALUES (?,?,?,?)",
-      [nombre, apellido, telefono, creado_por_administrativo]
+      "INSERT INTO manicuristas (correo, nombre, apellido, telefono, creado_por_administrativo) VALUES (?,?,?,?)",
+      [correo, nombre, apellido, telefono, creado_por_administrativo]
     );
-    res.status(201).json({message: "Manicurista creada",   id: rows.insertId});
+    res.status(201).json({ message: "Manicurista creada", id: rows.insertId });
   } catch (error) {
     res.status(500);
     console.log(error);
