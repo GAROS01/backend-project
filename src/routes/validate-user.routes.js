@@ -9,7 +9,7 @@ router.post("/validate-user", validateToken, async (req, res) => {
   console.log(user);
 
   // Extrae el correo y el nombre del objeto user
-  const correo = user.email;
+  const correo = user.user_metadata.email;
   const nombre = user.user_metadata.name;
 
   if (!correo || !nombre) {
