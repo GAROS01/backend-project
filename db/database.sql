@@ -34,7 +34,7 @@ create table manicuristas (
     nombre_completo varchar(100),
     telefono varchar(20),
     primary key (id_manicurista),
-    unique (correo),
+    unique (correo)
 );
 
 -- tabla citas
