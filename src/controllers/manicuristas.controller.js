@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getManicuristas = async (req, res) => {
   try {
     const rows = await pool.query("SELECT * FROM manicuristas");
-    res.json(formatManicuristas(rows[0]));
+    res.json(rows[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
@@ -20,7 +20,7 @@ export const getManicurista = async (req, res) => {
     if (rows[0].length === 0) {
       return res.status(404).json({ message: "Manicurista no encontrado" });
     }
-    res.json(formatManicuristas(rows[0])[0]);
+    res.json(rows[0][0]);
   } catch (error) {
     res.status(500);
     console.log(error);
