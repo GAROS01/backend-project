@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getClients = async (req, res) => {
   try {
     const rows = await pool.query("SELECT * FROM clientes");
-    res.json(formatClients(rows[0]));
+    res.json(rows[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
@@ -20,7 +20,7 @@ export const getClient = async (req, res) => {
     if (rows[0].length === 0) {
       return res.status(404).json({ message: "Cliente no encontrado" });
     }
-    res.json(formatClients(rows[0])[0]);
+    res.json(rows[0][0]);
   } catch (error) {
     res.status(500);
     console.log(error);
