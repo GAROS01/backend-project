@@ -17,9 +17,18 @@ router.post("/validate-user", validateToken, async (req, res) => {
   }
 
   try {
+    // Verifica si el correo ya existe en la base de datos
+    const [existingUser] = await pool.query(
+      "SELECT * FROM clientes WHERE correo = ?",
+      [correo]
+    );
+    if (existingUser.length > 0) {
+      return res.status(400).json({ error: "El correo ya está registrado" });
+    }
+
     // Inserta los datos en la base de datos
     const rows = await pool.query(
-      "INSERT INTO clientes (correo, nombre) VALUES (?,?)",
+      "INSERT INTO clientes (correo, nombre_completo) VALUES (?,?)",
       [correo, nombre]
     );
     res.json({ correo, nombre });
