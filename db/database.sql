@@ -53,7 +53,7 @@ create table citas (
 
 -- se insertan datos de ejmplo en las tablas
 -- Insertar datos en la tabla administrativos
-insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('correo@ejemplo.com', 'Nombre Apellido', '1234567890', 'contraseña');
+insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admino@ejemplo.com', 'Administrador', '1234567890', 'admin098');
 insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin1@empresa.com', 'Juan Perez', '3216549870', 'admin123');
 insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin2@empresa.com', 'Ana Gomez', '3206541234', 'pass456');
 
