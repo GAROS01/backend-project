@@ -69,7 +69,7 @@ export const deleteAdministrativo = async (req, res) => {
 
 export const loginAdministrativo = async (req, res) => {
   try {
-    const { correo, password } = req.body;
+    const { correo, contrasea } = req.body;
     const rows = await pool.query(
       "SELECT * FROM administrativos WHERE correo = ?",
       [correo]
@@ -79,7 +79,7 @@ export const loginAdministrativo = async (req, res) => {
     }
 
     const administrativo = rows[0][0];
-    if (administrativo.password !== password) {
+    if (administrativo.contrasea !== contrasea) {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
