@@ -54,21 +54,21 @@ create table citas (
 -- se insertan datos de ejmplo en las tablas
 -- Insertar datos en la tabla administrativos
 insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('correo@ejemplo.com', 'Nombre Apellido', '1234567890', 'contraseña');
-insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin1@empresa.com', 'Juan Pérez', '3216549870', 'admin123');
-insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin2@empresa.com', 'Ana Gómez', '3206541234', 'pass456');
+insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin1@empresa.com', 'Juan Perez', '3216549870', 'admin123');
+insert into administrativos (correo, nombre_completo, telefono, contraseña) values ('admin2@empresa.com', 'Ana Gomez', '3206541234', 'pass456');
 
 -- Insertar datos en la tabla clientes
-insert into clientes (correo, nombre_completo, telefono) values ('cliente1@gmail.com', 'Carlos Sánchez', '3001234567');
-insert into clientes (correo, nombre_completo, telefono) values ('cliente2@gmail.com', 'María Fernanda', '3109876543');
+insert into clientes (correo, nombre_completo, telefono) values ('cliente1@gmail.com', 'Carlos Sanchez', '3001234567');
+insert into clientes (correo, nombre_completo, telefono) values ('cliente2@gmail.com', 'Maria Fernanda', '3109876543');
 insert into clientes (correo, nombre_completo, telefono) values ('cliente3@gmail.com', 'Laura Rodríguez', '3207654321');
 
 -- Insertar datos en la tabla manicuristas
-insert into manicuristas (correo, nombre_completo, telefono) values ('manicurista1@gmail.com', 'Sofía López', '3152345678');
+insert into manicuristas (correo, nombre_completo, telefono) values ('manicurista1@gmail.com', 'Sofia Lopez', '3152345678');
 insert into manicuristas (correo, nombre_completo, telefono) values ('manicurista2@gmail.com', 'Clara Mendoza', '3104567890');
 insert into manicuristas (correo, nombre_completo, telefono) values ('manicurista3@gmail.com', 'Valeria Ortiz', '3223456789');
 
 
 -- Insertar datos en la tabla citas
-insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2021-10-15', '10:00:00', 1, 1);
-insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2021-10-15', '11:00:00', 2, 2);
-insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2021-10-15', '12:00:00', 3, 3);
+insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2025-02-15', '10:00:00', 1, 1);
+insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2025-01-15', '11:00:00', 2, 2);
+insert into citas (fecha, hora, id_cliente, id_manicurista) values ('2025-01-10', '12:00:00', 3, 3);
