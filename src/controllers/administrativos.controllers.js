@@ -83,7 +83,7 @@ export const loginAdministrativo = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
-    res.json({ message: "Inicio de sesión exitoso" });
+    res.json(rows[0]);
   } catch (error) {
     res.status(500);
     console.log(error);
