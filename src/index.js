@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import PORT from "./config.js";
+import { PORT } from "./config.js";
 import clientesRoutes from "./routes/clientes.routes.js";
 import adminRoutes from "./routes/administrativos.routes.js";
 import manicuristasRoutes from "./routes/manicuristas.routes.js";
@@ -20,6 +20,12 @@ app.use("/api", manicuristasRoutes);
 app.use("/api", citasRoutes);
 app.use("/api", userValidation);
 app.use("/api", validateCita);
+
+app.use((req, res) => {
+  res.status(404).json({
+    error: "Not found",
+  });
+});
 
 morgan(":method :url :status :res[content-length] - :response-time ms");
 
